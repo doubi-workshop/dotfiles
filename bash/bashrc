@@ -189,3 +189,9 @@ fi
         printf "\n$txtylw%s@$bldgrn%s: $bldpur%s\n$txtrst" "$USER" "$HOSTNAME" "$PWD" 
     }
 # }}}
+
+# added by Anaconda 2.3.0 installer
+export PATH="/home/rookiepig/anaconda/bin:$PATH"
+
+
+. /home/rookiepig/torch/install/bin/torch-activate
