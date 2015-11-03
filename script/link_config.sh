@@ -2,6 +2,7 @@
 # set dotfile path and home path
 
 # set HOME and DOTFILE_PATH
+export DOTFILE_PATH=${HOME}\dotfiles
 case "$(hostname)" in
 	# dev1 machine
     xjydev1.corp.qihoo.net )
