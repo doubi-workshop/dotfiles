@@ -2,29 +2,34 @@
 # set dotfile path and home path
 
 # set HOME and DOTFILE_PATH
-export DOTFILE_PATH=${HOME}/dotfiles
+DOTFILE_PATH=${HOME}/dotfiles
 case "$(hostname)" in
 	# dev1 machine
     xjydev1.corp.qihoo.net )
+        echo "dev1"
 	    export HOME=/da3/search/zhangkang-pd
-        export DOTFILE_PATH=${HOME}/dotfiles
+        DOTFILE_PATH=${HOME}/dotfiles
         ;;
     # dev2 machine
     dev15.se.corp.qihoo.net )
+        echo "dev2"
         export HOME=/da1/zhangkang-pd
-        export DOTFILE_PATH=${HOME}/dotfiles
+        DOTFILE_PATH=${HOME}/dotfiles
         ;;
 	# pc
     zhangkang-pd-D4 )
-    	export DOTFILE_PATH=/cygdrive/e/Cloud/dotfiles
+        echo "pc"
+    	DOTFILE_PATH=/cygdrive/e/Cloud/dotfiles
         ;;
 	# gpu1-4
-	w-gpu[1-4].imgse.bjdt.qihoo.net )
-        export DOTFILE_PATH=${HOME}/dotfiles
+	gpu[1-4].imgse.bjdt.qihoo.net )
+        echo "gpu"
+        DOTFILE_PATH=${HOME}/dotfiles
 		;;
 	# virtual machine
 	face01v.image.corp.qihoo.net )
-        export DOTFILE_PATH=${HOME}/dotfiles
+        echo "virtual machine"
+        DOTFILE_PATH=${HOME}/dotfiles
 		;;	
 esac
 
