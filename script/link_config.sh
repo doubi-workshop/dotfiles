@@ -36,27 +36,27 @@ esac
 echo "soft link all config files"
 
 # personal script
-if ! [ -h "${HOME}/script" ]; then
+if ! [ -h "${HOME}/script" -o -d "${HOME}/script" ]; then
     ln -s ${DOTFILE_PATH}/script ${HOME}/script
 fi
 echo "soft link personal script"
 
 # bash
-if [ -h "${HOME}/.bashrc" ]; then
+if [ -h "${HOME}/.bashrc" -o -e "${HOME}/.bashrc" ]; then
     rm ${HOME}/.bashrc
 fi
 ln -s ${DOTFILE_PATH}/bash/bashrc ${HOME}/.bashrc
-if [ -h "${HOME}/.bash_profile" ]; then
+if [ -h "${HOME}/.bash_profile" -o -e "${HOME}/.bash_profile" ]; then
     rm ${HOME}/.bash_profile
 fi
 ln -s ${DOTFILE_PATH}/bash/bash_profile ${HOME}/.bash_profile
 echo "soft link bash"
 
 # vim
-if [ -d "${HOME}/.vim" ]; then
+if [ -d "${HOME}/.vim" -o -h "${HOME}/.vim" ]; then
     rm -rf ${HOME}/.vim
 fi
-if [ -h "${HOME}/.vimrc" ]; then
+if [ -h "${HOME}/.vimrc" -o -e "${HOME}/.vimrc" ]; then
     rm ${HOME}/.vimrc
 fi
 ln -s ${DOTFILE_PATH}/vim/vimrc.vim ${HOME}/.vimrc
@@ -73,7 +73,7 @@ echo "soft link vim"
 #ln -s ${DOTFILE_PATH}/zsh/ ${HOME}/.oh-my-zsh 
 
 # tmux
-if [ -h "${HOME}/.tmux.conf" ]; then
+if [ -h "${HOME}/.tmux.conf" -o -e "${HOME}/.tmux.conf" ]; then
     rm ${HOME}/.tmux.conf
 fi
 ln -s ${DOTFILE_PATH}/tmux/tmux.conf ${HOME}/.tmux.conf
@@ -87,4 +87,5 @@ fi
 echo "install Vundle for vim"
 
 source ${HOME}/.bashrc
+
 echo "done"
