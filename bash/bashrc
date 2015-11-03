@@ -58,7 +58,9 @@ fi
 		# dev machine
 		# echo "host name = $(hostname)"
 		export HOME=/da3/search/zhangkang-pd
-        export DOTFILE_PATH=${HOME}/dotfile
+        export DOTFILE_PATH=${HOME}/dotfiles
+    elif [ $(hostname) == "dev15.se.corp.qihoo.net" ]; then
+        export DOTFILE_PATH=${HOME}/dotfiles
     elif [ $(hostname) == "zhangkang-pd-D4" ]; then
         # pc machine
         export DOTFILE_PATH=/cygdrive/e/Cloud/dotfiles
