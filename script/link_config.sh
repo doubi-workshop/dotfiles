@@ -42,11 +42,11 @@ fi
 echo "soft link personal script"
 
 # bash
-if [ -e "${HOME}/.bashrc" ]; then
+if [ -h "${HOME}/.bashrc" ]; then
     rm ${HOME}/.bashrc
 fi
 ln -s ${DOTFILE_PATH}/bash/bashrc ${HOME}/.bashrc
-if [ -e "${HOME}/.bash_profile" ]; then
+if [ -h "${HOME}/.bash_profile" ]; then
     rm ${HOME}/.bash_profile
 fi
 ln -s ${DOTFILE_PATH}/bash/bash_profile ${HOME}/.bash_profile
@@ -56,14 +56,14 @@ echo "soft link bash"
 if [ -d "${HOME}/.vim" ]; then
     rm -rf ${HOME}/.vim
 fi
-if [ -e "${HOME}/.vimrc" ]; then
+if [ -h "${HOME}/.vimrc" ]; then
     rm ${HOME}/.vimrc
 fi
 ln -s ${DOTFILE_PATH}/vim/vimrc.vim ${HOME}/.vimrc
 echo "soft link vim"
 
 # zsh
-#if [ -e "${HOME}/.zshrc" ]; then
+#if [ -h "${HOME}/.zshrc" ]; then
 #    rm ${HOME}/.zshrc
 #fi
 #if [ -d "${HOME}/.oh-my-zsh" ]; then
@@ -73,7 +73,7 @@ echo "soft link vim"
 #ln -s ${DOTFILE_PATH}/zsh/ ${HOME}/.oh-my-zsh 
 
 # tmux
-if [ -e "${HOME}/.tmux.conf" ]; then
+if [ -h "${HOME}/.tmux.conf" ]; then
     rm ${HOME}/.tmux.conf
 fi
 ln -s ${DOTFILE_PATH}/tmux/tmux.conf ${HOME}/.tmux.conf
