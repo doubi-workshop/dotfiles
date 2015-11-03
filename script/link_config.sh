@@ -2,41 +2,41 @@
 # set dotfile path and home path
 
 # set HOME and DOTFILE_PATH
-DOTFILE_PATH=${HOME}/dotfiles
+export DOTFILE_PATH=${HOME}/dotfiles
 case "$(hostname)" in
 	# dev1 machine
     xjydev1.corp.qihoo.net )
         echo "dev1"
 	    export HOME=/da3/search/zhangkang-pd
-        DOTFILE_PATH=${HOME}/dotfiles
+        export DOTFILE_PATH=${HOME}/dotfiles
         ;;
     # dev2 machine
     dev15.se.corp.qihoo.net )
         echo "dev2"
         export HOME=/da1/zhangkang-pd
-        DOTFILE_PATH=${HOME}/dotfiles
+        export DOTFILE_PATH=${HOME}/dotfiles
         ;;
 	# pc
     zhangkang-pd-D4 )
         echo "pc"
-    	DOTFILE_PATH=/cygdrive/e/Cloud/dotfiles
+    	export DOTFILE_PATH=/cygdrive/e/Cloud/dotfiles
         ;;
 	# gpu1-4
 	gpu[1-4].imgse.bjdt.qihoo.net )
         echo "gpu"
-        DOTFILE_PATH=${HOME}/dotfiles
+        export DOTFILE_PATH=${HOME}/dotfiles
 		;;
 	# virtual machine
 	face01v.image.corp.qihoo.net )
         echo "virtual machine"
-        DOTFILE_PATH=${HOME}/dotfiles
+        export DOTFILE_PATH=${HOME}/dotfiles
 		;;	
 esac
 
 echo "soft link all config files"
 
 # personal script
-if ! [ -d "${HOME}/bin" ]; then
+if ! [ -h "${HOME}/script" ]; then
     ln -s ${DOTFILE_PATH}/script ${HOME}/script
 fi
 echo "soft link personal script"
@@ -86,4 +86,5 @@ if [ ! -d "${HOME}/.vim/bundle/Vundle.vim" ]; then
 fi
 echo "install Vundle for vim"
 
+source ${HOME}/.bashrc
 echo "done"
