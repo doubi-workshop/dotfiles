@@ -6,19 +6,11 @@
     " set the runtime path to include Vundle and initialize
     " alternatively, pass a path where Vundle should install plugins
     " call vundle#begin('~/some/path/here')
-    if (has('win16') || has('win32') || has('win64'))
-        " Vundle for Windows
-        set rtp+=$VIM/vimfiles/bundle/Vundle.vim
-        let path='$VIM/vimfiles/bundle'
-        call vundle#begin(path)
-    elseif (has('unix') && !has('macunix') && !has('win32unix'))
-        " Vundle for Unix
-        set rtp+=~/.vim/bundle/Vundle.vim
-        call vundle#begin()
-    endif
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
 
     " let Vundle manage Vundle, required
-    Plugin 'gmarik/Vundle.vim'
+    Plugin 'VundleVim/Vundle.vim'
 
     " The following are examples of different formats supported.
     " Keep Plugin commands between vundle#begin/end.

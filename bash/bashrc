@@ -219,5 +219,5 @@ export PATH="/home/rookiepig/anaconda/bin:$PATH"
    # as last entry source the gitprompt script
    # GIT_PROMPT_THEME=Custom # use custom .git-prompt-colors.sh
    # GIT_PROMPT_THEME=Solarized # use theme optimized for solarized color scheme
-   source ../bash-git-prompt/gitprompt.sh
+   source $(DOTFILE_PATH)/bash-git-prompt/gitprompt.sh
 # }}}
