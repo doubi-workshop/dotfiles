@@ -1,6 +1,32 @@
 #!/bin/bash
 # set dotfile path and home path
 
+# set HOME and DOTFILE_PATH
+case "$(hostname)" in
+	# dev1 machine
+    xjydev1.corp.qihoo.net )
+	    export HOME=/da3/search/zhangkang-pd
+        export DOTFILE_PATH=${HOME}/dotfiles
+        ;;
+    # dev2 machine
+    dev15.se.corp.qihoo.net )
+        export HOME=/da1/zhangkang-pd
+        export DOTFILE_PATH=${HOME}/dotfiles
+        ;;
+	# pc
+    zhangkang-pd-D4 )
+    	export DOTFILE_PATH=/cygdrive/e/Cloud/dotfiles
+        ;;
+	# gpu1-4
+	w-gpu[1-4].imgse.bjdt.qihoo.net )
+        export DOTFILE_PATH=${HOME}/dotfiles
+		;;
+	# virtual machine
+	face01v.image.corp.qihoo.net )
+        export DOTFILE_PATH=${HOME}/dotfiles
+		;;	
+esac
+
 echo "soft link all config files"
 
 # personal script
