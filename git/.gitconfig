@@ -1,3 +1,13 @@
+<<<<<<< HEAD
 [user]
 	name = Zhang Kang
 	email = zk54188@gmail.com
+=======
+[user]
+	name = Zhang Kang
+	email = zk54188@gmail.com
+[http]
+	proxy = 10.16.29.125:8087
+[https]
+	proxy = 10.16.29.125:8087
+>>>>>>> cad6a5d5ea268e7583c14e4ed1c140739a9d777d
