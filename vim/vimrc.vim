@@ -29,7 +29,7 @@
     Plugin 'garbas/vim-snipmate'
     Plugin 'honza/vim-snippets'
     " YouCompletMe
-    Plugin 'Valloric/YouCompleteMe'
+    " Plugin 'Valloric/YouCompleteMe'
     " CtrlP
     Plugin 'kien/ctrlp.vim'
     " Indexer
