@@ -7,7 +7,6 @@ case "$(hostname)" in
 	# dev1 machine
     xjydev1.corp.qihoo.net )
         echo "dev1"
-	    export HOME=/da3/search/zhangkang-pd
         export DOTFILE_PATH=${HOME}/dotfiles
         ;;
     # dev2 machine
