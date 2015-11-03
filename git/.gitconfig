@@ -3,3 +3,5 @@
 	email = zk54188@gmail.com
 [core]
 	autocrlf = input
+[push]
+	default = simple
