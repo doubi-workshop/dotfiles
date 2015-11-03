@@ -48,7 +48,7 @@ ln -s ${DOTFILE_PATH}/tmux/tmux.conf ${HOME}/.tmux.conf
 echo "soft link tmux"
 
 # install Vundle for vim
-if ![ -d "${HOME}/.vim/bundle/Vundle.vim" ]; then 
+if [ ! -d "${HOME}/.vim/bundle/Vundle.vim" ]; then 
     git clone https://github.com/VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim
     vim +PluginInstall +qall
 fi
