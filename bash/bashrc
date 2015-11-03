@@ -61,7 +61,6 @@ fi
     	# dev1 machine
         xjydev1.corp.qihoo.net )
             echo "dev1"
-    	    export HOME=/da3/search/zhangkang-pd
             export DOTFILE_PATH=${HOME}/dotfiles
             ;;
         # dev2 machine
@@ -222,7 +221,7 @@ fi
 export PATH="/home/rookiepig/anaconda/bin:$PATH"
 
 # torch 
-. /home/rookiepig/torch/install/bin/torch-activate
+# . /home/rookiepig/torch/install/bin/torch-activate
 
 # bash-git-prompt {{{
    # some other config in .bashrc
@@ -230,7 +229,7 @@ export PATH="/home/rookiepig/anaconda/bin:$PATH"
    # gitprompt configuration
 
    # Set config variables first
-   GIT_PROMPT_ONLY_IN_REPO=1
+   # GIT_PROMPT_ONLY_IN_REPO=1
 
    # GIT_PROMPT_FETCH_REMOTE_STATUS=0   # uncomment to avoid fetching remote status
 
@@ -244,5 +243,5 @@ export PATH="/home/rookiepig/anaconda/bin:$PATH"
    # as last entry source the gitprompt script
    # GIT_PROMPT_THEME=Custom # use custom .git-prompt-colors.sh
    # GIT_PROMPT_THEME=Solarized # use theme optimized for solarized color scheme
-   source ${DOTFILE_PATH}/bash-git-prompt/gitprompt.sh
+   # source ${DOTFILE_PATH}/bash-git-prompt/gitprompt.sh
 # }}}
