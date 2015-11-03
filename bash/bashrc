@@ -52,19 +52,34 @@ fi
 # }}}
 
 # Environment Variable {{{
+    # set local format (utf8)
     export LANG="en_US.utf8"
     export LC_ALL="en_US.utf8"
-	if [ $(hostname) == "xjydev1.corp.qihoo.net" ]; then
-		# dev machine
-		# echo "host name = $(hostname)"
-		export HOME=/da3/search/zhangkang-pd
-        export DOTFILE_PATH=${HOME}/dotfiles
-    elif [ $(hostname) == "dev15.se.corp.qihoo.net" ]; then
-        export DOTFILE_PATH=${HOME}/dotfiles
-    elif [ $(hostname) == "zhangkang-pd-D4" ]; then
-        # pc machine
-        export DOTFILE_PATH=/cygdrive/e/Cloud/dotfiles
-	fi
+    # set HOME and DOTFILE_PATH
+    case "$(hostname)" in
+    	# dev1 machine
+        xjydev1.corp.qihoo.net )
+		    export HOME=/da3/search/zhangkang-pd
+            export DOTFILE_PATH=${HOME}/dotfiles
+            ;;
+        # dev2 machine
+        dev15.se.corp.qihoo.net )
+            export HOME=/da1/zhangkang-pd
+            export DOTFILE_PATH=${HOME}/dotfiles
+            ;;
+    	# pc
+        zhangkang-pd-D4 )
+        	export DOTFILE_PATH=/cygdrive/e/Cloud/dotfiles
+            ;;
+    	# gpu1-4
+    	w-gpu[1-4].imgse.bjdt.qihoo.net )
+            export DOTFILE_PATH=${HOME}/dotfiles
+    		;;
+    	# virtual machine
+    	face01v.image.corp.qihoo.net )
+            export DOTFILE_PATH=${HOME}/dotfiles
+    		;;	
+    esac
     # export PS1=$txtpur'\u'$txtylw'@\h: '$txtgrn'\W'$txtred'\$ '$txtrst
     export PROMPT_COMMAND=print_before_the_prompt
     export PS1="-> "

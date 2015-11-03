@@ -1,52 +1,50 @@
 #!/bin/bash
-
 # set dotfile path and home path
-HOME_PATH=/home/zhangkang-pd
-if [ $(hostname) == "xjydev1.corp.qihoo.net" ]; then
-    DOTFILE_PATH=/da3/search/zhangkang-pd/dotfiles
-elif [ $(hostname) == "zhangkang-pd-D4" ]; then
-    DOTFILE_PATH=/cygdrive/e/Cloud/dotfiles
-fi
 
-# soft link all config files
+echo "soft link all config files"
 
-# bin
+# personal script
 if ! [ -d "$HOME/bin" ]; then
-    ln -s $DOTFILE_PATH/script $HOME_PATH/bin
+    ln -s $DOTFILE_PATH/script $HOME/script
 fi
+echo "soft link personal script"
 
 # bash
-if [ -e "$HOME_PATH/.bashrc" ]; then
-    rm $HOME_PATH/.bashrc
+if [ -e "$HOME/.bashrc" ]; then
+    rm $HOME/.bashrc
 fi
-ln -s $DOTFILE_PATH/bash/bashrc $HOME_PATH/.bashrc
-if [ -e "$HOME_PATH/.bash_profile" ]; then
-    rm $HOME_PATH/.bash_profile
+ln -s $DOTFILE_PATH/bash/bashrc $HOME/.bashrc
+if [ -e "$HOME/.bash_profile" ]; then
+    rm $HOME/.bash_profile
 fi
-ln -s $DOTFILE_PATH/bash/bash_profile $HOME_PATH/.bash_profile
+ln -s $DOTFILE_PATH/bash/bash_profile $HOME/.bash_profile
+echo "soft link bash"
 
 # vim
-if [ -d "$HOME_PATH/.vim" ]; then
-    rm -rf $HOME_PATH/.vim
+if [ -d "$HOME/.vim" ]; then
+    rm -rf $HOME/.vim
 fi
-if [ -e "$HOME_PATH/.vimrc" ]; then
-    rm $HOME_PATH/.vimrc
+if [ -e "$HOME/.vimrc" ]; then
+    rm $HOME/.vimrc
 fi
-ln -s $DOTFILE_PATH/vim/vimrc.vim $HOME_PATH/.vimrc
-ln -s $DOTFILE_PATH/vim/vimfiles $HOME_PATH/.vim
+ln -s $DOTFILE_PATH/vim/vimrc.vim $HOME/.vimrc
+echo "soft link vim"
 
 # zsh
-if [ -e "$HOME_PATH/.zshrc" ]; then
-    rm $HOME_PATH/.zshrc
-fi
-if [ -d "$HOME_PATH/.oh-my-zsh" ]; then
-    rm -rf $HOME_PATH/.oh-my-zsh
-fi
-ln -s $DOTFILE_PATH/zsh/templates/zshrc.zsh-template $HOME_PATH/.zshrc
-ln -s $DOTFILE_PATH/zsh/ $HOME_PATH/.oh-my-zsh 
+#if [ -e "$HOME/.zshrc" ]; then
+#    rm $HOME/.zshrc
+#fi
+#if [ -d "$HOME/.oh-my-zsh" ]; then
+#    rm -rf $HOME/.oh-my-zsh
+#fi
+#ln -s $DOTFILE_PATH/zsh/templates/zshrc.zsh-template $HOME/.zshrc
+#ln -s $DOTFILE_PATH/zsh/ $HOME/.oh-my-zsh 
 
 # tmux
-if [ -e "$HOME_PATH/.tmux.conf" ]; then
-    rm $HOME_PATH/.tmux.conf
+if [ -e "$HOME/.tmux.conf" ]; then
+    rm $HOME/.tmux.conf
 fi
-ln -s $DOTFILE_PATH/tmux/tmux.conf $HOME_PATH/.tmux.conf
+ln -s $DOTFILE_PATH/tmux/tmux.conf $HOME/.tmux.conf
+echo "soft link tmux"
+
+echo "done"
