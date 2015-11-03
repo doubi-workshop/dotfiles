@@ -63,6 +63,8 @@
     Plugin 'oplatek/Conque-Shell' 
     " markdown
     Plugin 'shime/vim-livedown'
+    " vim surround -- change brace, braket more easily
+    Plugin 'tpope/vim-surround'
 
 
     " Git plugin not hosted on GitHub
