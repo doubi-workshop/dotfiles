@@ -114,10 +114,20 @@ fi
     alias fgrep='fgrep --color=auto'              # show differences in colour
     
     # Some shortcuts for different directory listings
-    alias ls='ls -hGF'
-    # --color=tty'                 # classify files in colour
-    alias dir='ls --color=auto --format=vertical'
-    alias vdir='ls --color=auto --format=long'
+	if [ "$(uname)" == "Darwin" ]; then
+		# Do something under Mac OS X platform        
+		echo "on mac"
+	elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+		# Do something under GNU/Linux platform
+        alias ls='ls -hF --color=tty'                 # classify files in colour
+        alias dir='ls --color=auto --format=vertical'
+        alias vdir='ls --color=auto --format=long'
+	elif [ "$(expr substr $(uname -s) 1 9)" == "CYGWIN_NT" ]; then
+		# Do something under Windows NT platform
+        alias ls='ls -hF --color=tty'                 # classify files in colour
+        alias dir='ls --color=auto --format=vertical'
+        alias vdir='ls --color=auto --format=long'
+	fi  
     alias ll='ls -l'                              # long list
     alias la='ls -A'                              # all but . and ..
     alias lal='ls -al'
