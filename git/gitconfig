@@ -1,0 +1,9 @@
+[user]
+	name = Zhang Kang
+	email = zk54188@gmail.com
+[core]
+	autocrlf = input
+[http]
+	proxy = proxy.corp.qihoo.net:8080
+[https]
+	proxy = proxy.corp.qihoo.net:8080

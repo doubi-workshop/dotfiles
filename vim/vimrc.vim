@@ -18,7 +18,10 @@
     " plugin on GitHub repo
     " Fugitive -- git wrapper
     " Plugin 'tpope/vim-fugitive'
-
+    " c.vim -- various c/c++ programming support
+    " Plugin 'vim-scripts/c.vim'
+    " DoxygenToolkit -- auto generate doxygen like comment
+    Plugin 'vim-scripts/DoxygenToolkit.vim'
     "vim-indent-guides -- visulize vim indent
     Plugin 'nathanaelkane/vim-indent-guides'
     " auto-pairs -- auto insert brace etc
@@ -35,13 +38,13 @@
     Plugin 'garbas/vim-snipmate'
     Plugin 'honza/vim-snippets'
     " YouCompletMe
-    " Plugin 'Valloric/YouCompleteMe'
+    Plugin 'Valloric/YouCompleteMe'
     " CtrlP
     Plugin 'kien/ctrlp.vim'
     " Indexer
-    " Plugin 'everzet/vim-indexer'
-    " Plugin 'vim-scripts/DfrankUtil'
-    " Plugin 'vim-scripts/vimprj'
+    Plugin 'vim-scripts/DfrankUtil'
+    Plugin 'vim-scripts/vimprj'
+    Plugin 'vim-scripts/indexer.tar.gz'
     " TagBar
     Plugin 'vim-scripts/Tagbar'
     " NERD Tree
@@ -99,6 +102,7 @@
 " }}}
 
 " General {{{
+    set noswapfile  "do not use swap file
     set autoread    " auto read file when it is changed outside
     set fileformats=unix,dos,mac    " fileformt order
     set fileencoding=utf8    " UTF8 encoding
@@ -191,6 +195,11 @@
     nnoremap <space> za
 " }}}
 
+" Paste {{{
+    nnoremap <F2> :set invpaste paste?<CR>
+    set pastetoggle=<F2>
+    set showmode
+" }}}
 " Movement {{{
     " highlight last inserted text
     nnoremap gV `[v`]
@@ -213,9 +222,9 @@
     inoremap jk <ESC>
 
     " edit vimrc/zshrc and load vimrc bindings
-    nnoremap <leader>ev :vsp $MYVIMRC<CR>
+    nnoremap <leader>ev :vsp ~/.vimrc<CR>
     nnoremap <leader>ez :vsp ~/.zshrc<CR>
-    nnoremap <leader>sv :source $MYVIMRC<CR>
+    nnoremap <leader>sv :source ~/.vimrc<CR>
 
     " Visual shifting not exist visual mode
     vnoremap < <gv
@@ -286,6 +295,10 @@
     let g:indent_guides_guide_size=1
 " }}}
 
+" indexer {{{
+  " 设置插件 indexer 调用 ctags 的参数
+	let g:indexer_ctagsCommandLineOptions="--c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+iaSl --extra=+q"
+" }}}
 
 " bottom line is mode line
 set modelines=1

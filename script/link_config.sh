@@ -51,16 +51,6 @@ fi
 ln -s ${DOTFILE_PATH}/bash/bash_profile ${HOME}/.bash_profile
 echo "soft link bash"
 
-# vim
-if [ -d "${HOME}/.vim" -o -h "${HOME}/.vim" ]; then
-    rm -rf ${HOME}/.vim
-fi
-if [ -h "${HOME}/.vimrc" -o -e "${HOME}/.vimrc" ]; then
-    rm ${HOME}/.vimrc
-fi
-ln -s ${DOTFILE_PATH}/vim/vimrc.vim ${HOME}/.vimrc
-echo "soft link vim"
-
 # zsh
 #if [ -h "${HOME}/.zshrc" ]; then
 #    rm ${HOME}/.zshrc
@@ -78,12 +68,26 @@ fi
 ln -s ${DOTFILE_PATH}/tmux/tmux.conf ${HOME}/.tmux.conf
 echo "soft link tmux"
 
+# vim
+if [ -d "${HOME}/.vim" -o -h "${HOME}/.vim" ]; then
+    echo "${HOME}.vim dir exists"
+    # rm -rf ${HOME}/.vim
+else
+    mkdir ${HOME}/.vim
+fi
+if [ -h "${HOME}/.vimrc" -o -e "${HOME}/.vimrc" ]; then
+    rm ${HOME}/.vimrc
+fi
+ln -s ${DOTFILE_PATH}/vim/vimrc.vim ${HOME}/.vimrc
+ln -s ${DOTFILE_PATH}/vim/vimfiles/ftplugin ${HOME}/.vim/ftplugin
+ln -s ${DOTFILE_PATH}/vim/vimfiles/snippets ${HOME}/.vim/snippets 
+echo "soft link vim"
 # install Vundle for vim
 if [ ! -d "${HOME}/.vim/bundle/Vundle.vim" ]; then 
+    echo "install Vundle for vim"
     git clone https://github.com/VundleVim/Vundle.vim.git ${HOME}/.vim/bundle/Vundle.vim
     vim +PluginInstall +qall
 fi
-echo "install Vundle for vim"
 
 source ${HOME}/.bashrc
 
