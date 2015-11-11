@@ -19,6 +19,12 @@
     " Fugitive -- git wrapper
     " Plugin 'tpope/vim-fugitive'
 
+    "vim-indent-guides -- visulize vim indent
+    Plugin 'nathanaelkane/vim-indent-guides'
+    " auto-pairs -- auto insert brace etc
+    Plugin 'jiangmiao/auto-pairs'
+    " STL-Syntax -- syntax file for stl
+    Plugin 'Mizuchi/STL-Syntax'
     " color scheme -- molokai
     Plugin 'tomasr/molokai'
     " vim-tmux integration
@@ -29,7 +35,7 @@
     Plugin 'garbas/vim-snipmate'
     Plugin 'honza/vim-snippets'
     " YouCompletMe
-    Plugin 'Valloric/YouCompleteMe'
+    " Plugin 'Valloric/YouCompleteMe'
     " CtrlP
     Plugin 'kien/ctrlp.vim'
     " Indexer
@@ -45,7 +51,7 @@
     " cscope
     Plugin 'brookhong/cscope.vim'
     " Plugin 'vim-scripts/cscope_macros.vim'
-    " sginature(mark)
+    " sginature(mark) -- visulise mark
     Plugin 'kshenoy/vim-signature'
     " javascript
     Plugin 'jelera/vim-javascript-syntax'
@@ -58,11 +64,11 @@
     " GUndo
     Plugin 'sjl/gundo.vim'
     " python
-    Plugin 'klen/python-mode'
+    " Plugin 'klen/python-mode'
     " Plugin 'ivanov/vim-ipython'
     Plugin 'oplatek/Conque-Shell' 
     " markdown
-    Plugin 'shime/vim-livedown'
+    " Plugin 'shime/vim-livedown'
     " vim surround -- change brace, braket more easily
     Plugin 'tpope/vim-surround'
 
@@ -246,6 +252,8 @@
     map <leader>tl <Plug>TaskList
     " GUndo
     map <leader>gu :GundoToggle<CR>
+    " vim-indent-guides
+    :nmap <silent> <Leader>ig <Plug>IndentGuidesToggle
 " }}}
 
 " NERDTree {{{
@@ -268,6 +276,17 @@
 " pymode {{{
     let g:pymode_rope_complete_on_dot = 0
 " }}}
+
+" vim-indent-guides {{{
+    " 随 vim 自启动
+    let g:indent_guides_enable_on_vim_startup=1
+    " 从第二层开始可视化显示缩进
+    let g:indent_guides_start_level=2
+    " 色块宽度
+    let g:indent_guides_guide_size=1
+" }}}
+
+
 " bottom line is mode line
 set modelines=1
 " vim:foldmethod=marker:foldlevel=0
