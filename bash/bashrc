@@ -53,8 +53,20 @@ fi
 
 # Environment Variable {{{
     # set local format (utf8)
-    export LANG="en_US.utf8"
-    export LC_ALL="en_US.utf8"
+	if [ "$(uname)" == "Darwin" ]; then
+		# Do something under Mac OS X platform        
+		echo "on mac"
+        export LANG="zh_CN.UTF-8"
+        export LC_ALL="zh_CN.UTF-8"
+	elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+		# Do something under GNU/Linux platform
+        export LANG="zh_CN.utf8"
+        export LC_ALL="zh_CN.utf8"
+	elif [ "$(expr substr $(uname -s) 1 9)" == "CYGWIN_NT" ]; then
+		# Do something under Windows NT platform
+        export LANG="zh_CN.utf8"
+        export LC_ALL="zh_CN.utf8"
+	fi  
     # set HOME and DOTFILE_PATH
     export DOTFILE_PATH=${HOME}/dotfiles
     case "$(hostname)" in
@@ -117,6 +129,7 @@ fi
 	if [ "$(uname)" == "Darwin" ]; then
 		# Do something under Mac OS X platform        
 		echo "on mac"
+        alias ls='ls -hFG'
 	elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 		# Do something under GNU/Linux platform
         alias ls='ls -hF --color=tty'                 # classify files in colour

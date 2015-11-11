@@ -20,6 +20,9 @@
     " Plugin 'tpope/vim-fugitive'
     " c.vim -- various c/c++ programming support
     " Plugin 'vim-scripts/c.vim'
+   
+    " vim-airline -- beautiful airline
+    Plugin 'bling/vim-airline'
     " DoxygenToolkit -- auto generate doxygen like comment
     Plugin 'vim-scripts/DoxygenToolkit.vim'
     "vim-indent-guides -- visulize vim indent
@@ -39,8 +42,10 @@
     Plugin 'honza/vim-snippets'
     " YouCompletMe
     Plugin 'Valloric/YouCompleteMe'
-    " CtrlP
+    " CtrlP -- like sublime ctrl+P
     Plugin 'kien/ctrlp.vim'
+    " ctrlsf -- CTRL+SHIFT+F like sublime
+    Plugin 'dyng/ctrlsf.vim'
     " Indexer
     Plugin 'vim-scripts/DfrankUtil'
     Plugin 'vim-scripts/vimprj'
