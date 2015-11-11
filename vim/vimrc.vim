@@ -300,6 +300,41 @@
 	let g:indexer_ctagsCommandLineOptions="--c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+iaSl --extra=+q"
 " }}}
 
+" TagBar {{{
+  " 设置 ctags 对哪些代码元素生成标签
+  let g:tagbar_type_cpp = {
+      \ 'kinds' : [
+          \ 'd:macros:1',
+          \ 'g:enums',
+          \ 't:typedefs:0:0',
+          \ 'e:enumerators:0:0',
+          \ 'n:namespaces',
+          \ 'c:classes',
+          \ 's:structs',
+          \ 'u:unions',
+          \ 'f:functions',
+          \ 'm:members:0:0',
+          \ 'v:global:0:0',
+          \ 'x:external:0:0',
+          \ 'l:local:0:0'
+      \ ],
+      \ 'sro'        : '::',
+      \ 'kind2scope' : {
+          \ 'g' : 'enum',
+          \ 'n' : 'namespace',
+          \ 'c' : 'class',
+          \ 's' : 'struct',
+          \ 'u' : 'union'
+      \ },
+      \ 'scope2kind' : {
+          \ 'enum'      : 'g',
+          \ 'namespace' : 'n',
+          \ 'class'     : 'c',
+          \ 'struct'    : 's',
+          \ 'union'     : 'u'
+      \ }
+  \ }
+" }}}
 " bottom line is mode line
 set modelines=1
 " vim:foldmethod=marker:foldlevel=0
