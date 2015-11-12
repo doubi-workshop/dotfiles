@@ -148,8 +148,11 @@ fi
 
 	alias ..="cd.."
 	alias mkdir="mkdir -pv"
-	alias czk="cd /da3/search/zhangkang-pd/"
 	alias ch="cd /home/zhangkang-pd/"
+    alias czk="cd /da3/search/zhangkang-pd/"
+
+    # xctags extra command for generate complete tag file
+    alias xctags="ctags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q --language-force=c++ -f"
 # }}}
 
 # Function {{{

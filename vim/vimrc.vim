@@ -289,6 +289,9 @@
     imap <leader><S-Tab> <Plug>snipMateBack
     smap <leader><S-Tab> <Plug>snipMateBack
     vmap <leader><Tab> <Plug>snipMateVisual
+    " YouCompleteMe
+    nnoremap <leader>jd :YcmCompleter GoToDeclaration<CR>
+    nnoremap <leader>je :YcmCompleter GoToDefinition<CR> 
 " }}}
 
 " NERDTree {{{
