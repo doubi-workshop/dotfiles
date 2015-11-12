@@ -20,7 +20,11 @@
     " Plugin 'tpope/vim-fugitive'
     " c.vim -- various c/c++ programming support
     " Plugin 'vim-scripts/c.vim'
-   
+  
+    " easymotion -- awesome motion
+    Plugin 'easymotion/vim-easymotion'
+    " nerdcommenter -- easy comment and uncomment
+    Plugin 'scrooloose/nerdcommenter'
     " vim-airline -- beautiful airline
     Plugin 'bling/vim-airline'
     " DoxygenToolkit -- auto generate doxygen like comment
@@ -42,6 +46,8 @@
     Plugin 'honza/vim-snippets'
     " YouCompletMe
     Plugin 'Valloric/YouCompleteMe'
+    " syntastic -- show static syntax error
+    Plugin 'scrooloose/syntastic'
     " CtrlP -- like sublime ctrl+P
     Plugin 'kien/ctrlp.vim'
     " ctrlsf -- CTRL+SHIFT+F like sublime
@@ -205,6 +211,13 @@
     set pastetoggle=<F2>
     set showmode
 " }}}
+
+" Tags {{{
+    set tags+=/usr/include/c++/4.4.6/stdcpp.tags
+    set tags+=/usr/include/sys.tags
+    set tags+=/usr/local/include/local.tags
+" }}}
+
 " Movement {{{
     " highlight last inserted text
     nnoremap gV `[v`]
@@ -267,13 +280,23 @@
     " GUndo
     map <leader>gu :GundoToggle<CR>
     " vim-indent-guides
-    :nmap <silent> <Leader>ig <Plug>IndentGuidesToggle
+    nmap <silent> <leader>ig <Plug>IndentGuidesToggle
+    " doxygentoolkit -- function comment
+    map <leader>dx :Dox<CR>
+    " vim-snipmate
+    imap <leader><Tab> <Plug>snipMateNextOrTrigger
+    smap <leader><Tab> <Plug>snipMateNextOrTrigger
+    imap <leader><S-Tab> <Plug>snipMateBack
+    smap <leader><S-Tab> <Plug>snipMateBack
+    vmap <leader><Tab> <Plug>snipMateVisual
 " }}}
 
 " NERDTree {{{
     " open NERDTree when start vim
     autocmd StdinReadPre * let s:std_in=1
     autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+    let NERDTreeWinSize=32
+    let NERDTreeShowHidden=1
 " }}}
 
 " cscope {{{
@@ -306,6 +329,7 @@
 " }}}
 
 " TagBar {{{
+  let g:tagbar_width = 20
   " 设置 ctags 对哪些代码元素生成标签
   let g:tagbar_type_cpp = {
       \ 'kinds' : [
@@ -339,6 +363,9 @@
           \ 'union'     : 'u'
       \ }
   \ }
+" }}}
+
+" syntastic {{{
 " }}}
 " bottom line is mode line
 set modelines=1

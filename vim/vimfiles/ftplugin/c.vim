@@ -1,7 +1,7 @@
 " c specific settings {{{
-    set textwidth=80
-    set colorcolumn=-2
-    set tabstop=2    " number of visual spaces per TAB
-    set shiftwidth=2    " indent spaces for '>>' '<<'
-    set softtabstop=2    " number of spaces in TAB when editting
+    setlocal textwidth=80
+    setlocal colorcolumn=-2
+    setlocal tabstop=2    " number of visual spaces per TAB
+    setlocal shiftwidth=2    " indent spaces for '>>' '<<'
+    setlocal softtabstop=2    " number of spaces in TAB when editting
 " }}}
