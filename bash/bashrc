@@ -60,12 +60,12 @@ fi
         export LC_ALL="zh_CN.UTF-8"
 	elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 		# Do something under GNU/Linux platform
-        export LANG="zh_CN.utf8"
-        export LC_ALL="zh_CN.utf8"
+        export LANG="en_US.utf8"
+        export LC_ALL="en_US.utf8"
 	elif [ "$(expr substr $(uname -s) 1 9)" == "CYGWIN_NT" ]; then
 		# Do something under Windows NT platform
-        export LANG="zh_CN.utf8"
-        export LC_ALL="zh_CN.utf8"
+        export LANG="en_US.utf8"
+        export LC_ALL="en_US.utf8"
 	fi  
     # set HOME and DOTFILE_PATH
     export DOTFILE_PATH=${HOME}/dotfiles
