@@ -6,43 +6,43 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # Color {{{
-    txtblk='\e[0;30m' # Black - Regular
-    txtred='\e[0;31m' # Red
-    txtgrn='\e[0;32m' # Green
-    txtylw='\e[0;33m' # Yellow
-    txtblu='\e[0;34m' # Blue
-    txtpur='\e[0;35m' # Purple
-    txtcyn='\e[0;36m' # Cyan
-    txtwht='\e[0;37m' # White
+    #txtblk='\e[0;30m' # Black - Regular
+    #txtred='\e[0;31m' # Red
+    #txtgrn='\e[0;32m' # Green
+    #txtylw='\e[0;33m' # Yellow
+    #txtblu='\e[0;34m' # Blue
+    #txtpur='\e[0;35m' # Purple
+    #txtcyn='\e[0;36m' # Cyan
+    #txtwht='\e[0;37m' # White
      
-    bldblk='\e[1;30m' # Black - Bold
-    bldred='\e[1;31m' # Red
-    bldgrn='\e[1;32m' # Green
-    bldylw='\e[1;33m' # Yellow
-    bldblu='\e[1;34m' # Blue
-    bldpur='\e[1;35m' # Purple
-    bldcyn='\e[1;36m' # Cyan
-    bldwht='\e[1;37m' # White
+    #bldblk='\e[1;30m' # Black - Bold
+    #bldred='\e[1;31m' # Red
+    #bldgrn='\e[1;32m' # Green
+    #bldylw='\e[1;33m' # Yellow
+    #bldblu='\e[1;34m' # Blue
+    #bldpur='\e[1;35m' # Purple
+    #bldcyn='\e[1;36m' # Cyan
+    #bldwht='\e[1;37m' # White
      
-    unkblk='\e[4;30m' # Black - Underline
-    undred='\e[4;31m' # Red
-    undgrn='\e[4;32m' # Green
-    undylw='\e[4;33m' # Yellow
-    undblu='\e[4;34m' # Blue
-    undpur='\e[4;35m' # Purple
-    undcyn='\e[4;36m' # Cyan
-    undwht='\e[4;37m' # White
+    #unkblk='\e[4;30m' # Black - Underline
+    #undred='\e[4;31m' # Red
+    #undgrn='\e[4;32m' # Green
+    #undylw='\e[4;33m' # Yellow
+    #undblu='\e[4;34m' # Blue
+    #undpur='\e[4;35m' # Purple
+    #undcyn='\e[4;36m' # Cyan
+    #undwht='\e[4;37m' # White
      
-    bakblk='\e[40m'   # Black - Background
-    bakred='\e[41m'   # Red
-    badgrn='\e[42m'   # Green
-    bakylw='\e[43m'   # Yellow
-    bakblu='\e[44m'   # Blue
-    bakpur='\e[45m'   # Purple
-    bakcyn='\e[46m'   # Cyan
-    bakwht='\e[47m'   # White
+    #bakblk='\e[40m'   # Black - Background
+    #bakred='\e[41m'   # Red
+    #badgrn='\e[42m'   # Green
+    #bakylw='\e[43m'   # Yellow
+    #bakblu='\e[44m'   # Blue
+    #bakpur='\e[45m'   # Purple
+    #bakcyn='\e[46m'   # Cyan
+    #bakwht='\e[47m'   # White
      
-    txtrst='\e[0m'    # Text Reset
+    #txtrst='\e[0m'    # Text Reset
 # }}}
 
 # Shell Option {{{
@@ -55,7 +55,7 @@ fi
     # set local format (utf8)
 	if [ "$(uname)" == "Darwin" ]; then
 		# Do something under Mac OS X platform        
-		echo "on mac"
+		#echo "on mac"
         export LANG="zh_CN.UTF-8"
         export LC_ALL="zh_CN.UTF-8"
 	elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
@@ -99,13 +99,22 @@ fi
     esac
 
     # export PS1=$txtpur'\u'$txtylw'@\h: '$txtgrn'\W'$txtred'\$ '$txtrst
-    export PROMPT_COMMAND=print_before_the_prompt
-    export PS1="-> "
+    # export PROMPT_COMMAND=print_before_the_prompt
+    # export PS1="-> "
     # default edtitor for most program
     export VISUAL=vim
     export EDITOR="$VISUAL"
     # using vim to view man page
     export MANPAGER="col -b | vim -c 'set ft=man ts=8 nomod nolist nonu' -c 'nnoremap i <nop>' -"
+	if [ "$(uname)" == "Darwin" ]; then
+        # added by Anaconda 2.3.0 installer
+        export PATH="/Users/rookiepig/anaconda2/bin:$PATH"
+    else
+        export PATH="/home/rookiepig/anaconda2/bin:$PATH"
+    fi
+    # torch 
+    # . /home/rookiepig/torch/install/bin/torch-activate
+
 # }}}
 
 
@@ -130,7 +139,7 @@ fi
     # Some shortcuts for different directory listings
 	if [ "$(uname)" == "Darwin" ]; then
 		# Do something under Mac OS X platform        
-		echo "on mac"
+		#echo "on mac"
         alias ls='ls -hFG'
 	elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 		# Do something under GNU/Linux platform
@@ -247,11 +256,6 @@ fi
     }
 # }}}
 
-# added by Anaconda 2.3.0 installer
-export PATH="/home/rookiepig/anaconda/bin:$PATH"
-
-# torch 
-# . /home/rookiepig/torch/install/bin/torch-activate
 
 # bash-git-prompt {{{
    # some other config in .bashrc

@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 # Path to the bash it configuration
-export BASH_IT="/Users/rookiepig/lib/bash-it"
+export BASH_IT="/Users/rookiepig/dotfiles/bash-it"
 
 # Lock and Load a custom theme file
 # location /.bash_it/themes/
-export BASH_IT_THEME='bobby'
+export BASH_IT_THEME='sexy'
 
 # Your place for hosting Git repos. I use this for private repos.
 export GIT_HOSTING='git@git.domain.com'
