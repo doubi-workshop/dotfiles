@@ -1,4 +1,5 @@
-# git prompt git folder
 bash-git-prompt/.git/
-ssh
+ssh/
 vim/vimfiles/bundle
+bash-it/.git/
+
