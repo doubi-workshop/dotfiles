@@ -18,3 +18,10 @@ snippet file_head
 	* =====================================================================================
 	*/
 
+snippet mongo_exc
+	try {
+		$1
+	} catch (const mongo::DBException e) {
+		LOG(ERROR) << "caught " << e.what();
+		return DB_ERR_EXCEPTION;
+	}

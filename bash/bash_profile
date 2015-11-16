@@ -1,7 +1,18 @@
 #!/usr/bin/env bash
 
 # Path to the bash it configuration
-export BASH_IT="/Users/rookiepig/dotfiles/bash-it"
+
+export BASH_IT="${HOME}/dotfiles/bash-it"
+# if [ "$(uname)" == "Darwin" ]; then
+#     # Do something under Mac OS X platform        
+#     export BASH_IT="/Users/rookiepig/dotfiles/bash-it"
+# elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+#     # Do something under GNU/Linux platform
+#     export BASH_IT="/Users/rookiepig/dotfiles/bash-it"
+# elif [ "$(expr substr $(uname -s) 1 9)" == "CYGWIN_NT" ]; then
+#     # Do something under Windows NT platform
+#     export BASH_IT="/Users/rookiepig/dotfiles/bash-it"
+# fi  
 
 # Lock and Load a custom theme file
 # location /.bash_it/themes/

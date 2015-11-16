@@ -1,1 +1,281 @@
-../../bash/bashrc
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
+# Color {{{
+    #txtblk='\e[0;30m' # Black - Regular
+    #txtred='\e[0;31m' # Red
+    #txtgrn='\e[0;32m' # Green
+    #txtylw='\e[0;33m' # Yellow
+    #txtblu='\e[0;34m' # Blue
+    #txtpur='\e[0;35m' # Purple
+    #txtcyn='\e[0;36m' # Cyan
+    #txtwht='\e[0;37m' # White
+     
+    #bldblk='\e[1;30m' # Black - Bold
+    #bldred='\e[1;31m' # Red
+    #bldgrn='\e[1;32m' # Green
+    #bldylw='\e[1;33m' # Yellow
+    #bldblu='\e[1;34m' # Blue
+    #bldpur='\e[1;35m' # Purple
+    #bldcyn='\e[1;36m' # Cyan
+    #bldwht='\e[1;37m' # White
+     
+    #unkblk='\e[4;30m' # Black - Underline
+    #undred='\e[4;31m' # Red
+    #undgrn='\e[4;32m' # Green
+    #undylw='\e[4;33m' # Yellow
+    #undblu='\e[4;34m' # Blue
+    #undpur='\e[4;35m' # Purple
+    #undcyn='\e[4;36m' # Cyan
+    #undwht='\e[4;37m' # White
+     
+    #bakblk='\e[40m'   # Black - Background
+    #bakred='\e[41m'   # Red
+    #badgrn='\e[42m'   # Green
+    #bakylw='\e[43m'   # Yellow
+    #bakblu='\e[44m'   # Blue
+    #bakpur='\e[45m'   # Purple
+    #bakcyn='\e[46m'   # Cyan
+    #bakwht='\e[47m'   # White
+     
+    #txtrst='\e[0m'    # Text Reset
+# }}}
+
+# Shell Option {{{
+    shopt -s nocaseglob
+    shopt -s cdspell
+
+# }}}
+
+# Environment Variable {{{
+    # set local format (utf8)
+	if [ "$(uname)" == "Darwin" ]; then
+		# Do something under Mac OS X platform        
+		#echo "on mac"
+        export LANG="zh_CN.UTF-8"
+        export LC_ALL="zh_CN.UTF-8"
+	elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+		# Do something under GNU/Linux platform
+        export LANG="en_US.utf8"
+        export LC_ALL="en_US.utf8"
+	elif [ "$(expr substr $(uname -s) 1 9)" == "CYGWIN_NT" ]; then
+		# Do something under Windows NT platform
+        export LANG="en_US.utf8"
+        export LC_ALL="en_US.utf8"
+	fi  
+    # set HOME and DOTFILE_PATH
+    export DOTFILE_PATH=${HOME}/dotfiles
+    case "$(hostname)" in
+    	# dev1 machine
+        xjydev1.corp.qihoo.net )
+            echo "dev1"
+            export DOTFILE_PATH=${HOME}/dotfiles
+            ;;
+        # dev2 machine
+        dev15.se.corp.qihoo.net )
+            echo "dev2"
+            export HOME=/da1/zhangkang-pd
+            export DOTFILE_PATH=${HOME}/dotfiles
+            ;;
+    	# pc
+        zhangkang-pd-D4 )
+            echo "pc"
+        	export DOTFILE_PATH=/cygdrive/e/Cloud/dotfiles
+            ;;
+    	# gpu1-4
+    	gpu[1-4].imgse.bjdt.qihoo.net )
+            echo "gpu"
+            export DOTFILE_PATH=${HOME}/dotfiles
+    		;;
+    	# virtual machine
+    	face01v.image.corp.qihoo.net )
+            echo "virtual machine"
+            export DOTFILE_PATH=${HOME}/dotfiles
+    		;;	
+    esac
+
+    # export PS1=$txtpur'\u'$txtylw'@\h: '$txtgrn'\W'$txtred'\$ '$txtrst
+    # export PROMPT_COMMAND=print_before_the_prompt
+    # export PS1="-> "
+    # default edtitor for most program
+    export VISUAL=vim
+    export EDITOR="$VISUAL"
+    # using vim to view man page
+    export MANPAGER="col -b | vim -c 'set ft=man ts=8 nomod nolist nonu' -c 'nnoremap i <nop>' -"
+	if [ "$(uname)" == "Darwin" ]; then
+        # added by Anaconda 2.3.0 installer
+        export PATH="/Users/rookiepig/anaconda2/bin:$PATH"
+    else
+        export PATH="/home/rookiepig/anaconda2/bin:$PATH"
+    fi
+    # torch 
+    # . /home/rookiepig/torch/install/bin/torch-activate
+
+# }}}
+
+
+# Alias {{{
+
+    # Interactive operation...
+    alias rm='rm -i'
+    alias cp='cp -i'
+    alias mv='mv -i'
+    
+    # Default to human readable figures
+    alias df='df -h'
+    alias du='du -h'
+    
+    # Misc :)
+    alias less='less -r'                          # raw control characters
+    alias whence='type -a'                        # where, of a sort
+    alias grep='grep --color'                     # show differences in colour
+    alias egrep='egrep --color=auto'              # show differences in colour
+    alias fgrep='fgrep --color=auto'              # show differences in colour
+    
+    # Some shortcuts for different directory listings
+	if [ "$(uname)" == "Darwin" ]; then
+		# Do something under Mac OS X platform        
+		#echo "on mac"
+        alias ls='ls -hFG'
+	elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+		# Do something under GNU/Linux platform
+        alias ls='ls -hF --color=tty'                 # classify files in colour
+        alias dir='ls --color=auto --format=vertical'
+        alias vdir='ls --color=auto --format=long'
+	elif [ "$(expr substr $(uname -s) 1 9)" == "CYGWIN_NT" ]; then
+		# Do something under Windows NT platform
+        alias ls='ls -hF --color=tty'                 # classify files in colour
+        alias dir='ls --color=auto --format=vertical'
+        alias vdir='ls --color=auto --format=long'
+	fi  
+    alias ll='ls -l'                              # long list
+    alias la='ls -A'                              # all but . and ..
+    alias lal='ls -al'
+    alias l='ls -CF'                              #
+
+	alias ..="cd.."
+	alias mkdir="mkdir -pv"
+	alias ch="cd /home/zhangkang-pd/"
+    alias czk="cd /da3/search/zhangkang-pd/"
+
+    # xctags extra command for generate complete tag file
+    alias xctags="ctags -R --c++-kinds=+p+l+x+c+d+e+f+g+m+n+s+t+u+v --fields=+liaS --extra=+q --language-force=c++ -f"
+# }}}
+
+# Function {{{
+	function extract {
+	 if [ -z "$1" ]; then
+	    # display usage if no parameters given
+	    echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
+	 else
+	    if [ -f $1 ] ; then
+	        NAME=${1%%.*}
+	        mkdir $NAME && cd $NAME
+	        case $1 in
+	          *.tar.bz2)   tar xvjf ../$1    ;;
+	          *.tar.gz)    tar xvzf ../$1    ;;
+	          *.tar.xz)    tar xvJf ../$1    ;;
+	          *.lzma)      unlzma ../$1      ;;
+	          *.bz2)       bunzip2 ../$1     ;;
+	          *.rar)       unrar x -ad ../$1 ;;
+	          *.gz)        gunzip ../$1      ;;
+	          *.tar)       tar xvf ../$1     ;;
+	          *.tbz2)      tar xvjf ../$1    ;;
+	          *.tgz)       tar xvzf ../$1    ;;
+	          *.zip)       unzip ../$1       ;;
+	          *.Z)         uncompress ../$1  ;;
+	          *.7z)        7z x ../$1        ;;
+	          *.xz)        unxz ../$1        ;;
+	          *.exe)       cabextract ../$1  ;;
+	          *)           echo "extract: '$1' - unknown archive method" ;;
+	        esac
+	    else
+	        echo "$1 - file does not exist"
+	    fi
+	fi
+    }
+    cd_func ()
+    {
+      local x2 the_new_dir adir index
+      local -i cnt
+    
+      if [[ $1 ==  "--" ]]; then
+        dirs -v
+        return 0
+      fi
+    
+      the_new_dir=$1
+      [[ -z $1 ]] && the_new_dir=$HOME
+    
+      if [[ ${the_new_dir:0:1} == '-' ]]; then
+        #
+        # Extract dir N from dirs
+        index=${the_new_dir:1}
+        [[ -z $index ]] && index=1
+        adir=$(dirs +$index)
+        [[ -z $adir ]] && return 1
+        the_new_dir=$adir
+      fi
+    
+      #
+      # '~' has to be substituted by ${HOME}
+      [[ ${the_new_dir:0:1} == '~' ]] && the_new_dir="${HOME}${the_new_dir:1}"
+    
+      #
+      # Now change to the new dir and add to the top of the stack
+      pushd "${the_new_dir}" > /dev/null
+      [[ $? -ne 0 ]] && return 1
+      the_new_dir=$(pwd)
+    
+      #
+      # Trim down everything beyond 11th entry
+      popd -n +11 2>/dev/null 1>/dev/null
+    
+      #
+      # Remove any other occurence of this dir, skipping the top of the stack
+      for ((cnt=1; cnt <= 10; cnt++)); do
+        x2=$(dirs +${cnt} 2>/dev/null)
+        [[ $? -ne 0 ]] && return 0
+        [[ ${x2:0:1} == '~' ]] && x2="${HOME}${x2:1}"
+        if [[ "${x2}" == "${the_new_dir}" ]]; then
+          popd -n +$cnt 2>/dev/null 1>/dev/null
+          cnt=cnt-1
+        fi
+      done
+    
+      return 0
+    }
+    
+    # prompt function
+    print_before_the_prompt () {
+        printf "\n$txtylw%s@$bldgrn%s: $bldpur%s\n$txtrst" "$USER" "$HOSTNAME" "$PWD" 
+    }
+# }}}
+
+
+# bash-git-prompt {{{
+   # some other config in .bashrc
+
+   # gitprompt configuration
+
+   # Set config variables first
+   # GIT_PROMPT_ONLY_IN_REPO=1
+
+   # GIT_PROMPT_FETCH_REMOTE_STATUS=0   # uncomment to avoid fetching remote status
+
+   # GIT_PROMPT_SHOW_UPSTREAM=1 # uncomment to show upstream tracking branch
+
+   # GIT_PROMPT_STATUS_COMMAND=gitstatus_pre-1.7.10.sh # uncomment to support Git older than 1.7.10
+
+   # GIT_PROMPT_START=...    # uncomment for custom prompt start sequence
+   # GIT_PROMPT_END=...      # uncomment for custom prompt end sequence
+
+   # as last entry source the gitprompt script
+   # GIT_PROMPT_THEME=Custom # use custom .git-prompt-colors.sh
+   # GIT_PROMPT_THEME=Solarized # use theme optimized for solarized color scheme
+   # source ${DOTFILE_PATH}/bash-git-prompt/gitprompt.sh
+# }}}
