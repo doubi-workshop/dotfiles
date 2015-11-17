@@ -2,7 +2,7 @@
 
 # Path to the bash it configuration
 
-export BASH_IT="${HOME}/dotfiles/bash-it"
+export BASH_IT="${HOME}/.bash_it"
 # if [ "$(uname)" == "Darwin" ]; then
 #     # Do something under Mac OS X platform        
 #     export BASH_IT="/Users/rookiepig/dotfiles/bash-it"
