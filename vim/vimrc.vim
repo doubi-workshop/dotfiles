@@ -115,6 +115,7 @@
 " General {{{
     set noswapfile  "do not use swap file
     set autoread    " auto read file when it is changed outside
+    set autowrite   " auto write file when change buffer"
     set fileformats=unix,dos,mac    " fileformt order
     set fileencoding=utf8    " UTF8 encoding
     scriptencoding utf-8
@@ -249,10 +250,10 @@
     vnoremap > >gv
 
     " Fast move between windows (<C-K> redefine digraph)
-    map <C-J> <C-W>j<C-W>_
-    map <C-K> <C-W>k<C-W>_
-    map <C-L> <C-W>l<C-W>_
-    map <C-H> <C-W>h<C-W>_
+    " map <c-j> <C-W>j
+    " map <c-k> <C-W>k
+    " map <c-l> <C-W>l
+    " map <c-h> <C-W>h
 
     " Fast move between tabs (redefine move top/bottom of screen)
     " map <S-H> gT
@@ -370,6 +371,20 @@
 
 " syntastic {{{
 " }}}
+
+" YouCompeteMe {{{
+    " 补全功能在注释中同样有效
+    let g:ycm_complete_in_comments=1
+    " 允许 vim 加载 .ycm_extra_conf.py 文件，不再提示
+    let g:ycm_confirm_extra_conf=0
+    " 开启 YCM 标签补全引擎
+    " let g:ycm_collect_identifiers_from_tags_files=1
+    " 补全内容不以分割子窗口形式出现，只显示补全列表
+    set completeopt-=preview
+    " 语法关键字补全         
+    " let g:ycm_seed_identifiers_with_syntax=1 
+" }}}
+
 " bottom line is mode line
 set modelines=1
 " vim:foldmethod=marker:foldlevel=0
