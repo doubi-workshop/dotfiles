@@ -216,6 +216,7 @@
     set tags+=/usr/include/c++/4.4.6/stdcpp.tags
     set tags+=/usr/include/sys.tags
     set tags+=/usr/local/include/local.tags
+    set tag+=${HOME}/lib/superviseddescent/superviseddescent.tags
 " }}}
 
 " Movement {{{
