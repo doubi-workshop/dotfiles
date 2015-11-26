@@ -25,3 +25,5 @@ snippet mongo_exc
 		LOG(ERROR) << "caught " << e.what();
 		return DB_ERR_EXCEPTION;
 	}
+	LOG(ERROR) << "unknown exception";
+	return DB_ERR_UNKNOW_EXCEPTION;
