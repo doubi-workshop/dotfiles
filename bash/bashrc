@@ -55,7 +55,6 @@ fi
     # set local format (utf8)
 	if [ "$(uname)" == "Darwin" ]; then
 		# Do something under Mac OS X platform        
-		echo "on mac"
         export LANG="zh_CN.UTF-8"
         export LC_ALL="zh_CN.UTF-8"
 	elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
@@ -72,28 +71,23 @@ fi
     case "$(hostname)" in
     	# dev1 machine
         xjydev1.corp.qihoo.net )
-            echo "dev1"
             export DOTFILE_PATH=${HOME}/dotfiles
             ;;
         # dev2 machine
         dev15.se.corp.qihoo.net )
-            echo "dev2"
             export HOME=/da1/zhangkang-pd
             export DOTFILE_PATH=${HOME}/dotfiles
             ;;
     	# pc
         zhangkang-pd-D4 )
-            echo "pc"
         	export DOTFILE_PATH=/cygdrive/e/Cloud/dotfiles
             ;;
     	# gpu1-4
     	gpu[1-4].imgse.bjdt.qihoo.net )
-            echo "gpu"
             export DOTFILE_PATH=${HOME}/dotfiles
     		;;
     	# virtual machine
     	face01v.image.corp.qihoo.net )
-            echo "virtual machine"
             export DOTFILE_PATH=${HOME}/dotfiles
     		;;	
     esac
@@ -106,7 +100,7 @@ fi
     export EDITOR="$VISUAL"
     # added by Anaconda 2.3.0 installer
     export PATH="${HOME}/local/bin:${HOME}/anaconda/bin:$PATH"
-    export LD_LIBRARY_PATH="${HOME}/local/bin:${LD_LIBRARY_PATH}"
+    export LD_LIBRARY_PATH="${HOME}/local/lib:${LD_LIBRARY_PATH}"
 # }}}
 
 
@@ -131,7 +125,6 @@ fi
     # Some shortcuts for different directory listings
 	if [ "$(uname)" == "Darwin" ]; then
 		# Do something under Mac OS X platform        
-		echo "on mac"
         alias ls='ls -hFG'
 	elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 		# Do something under GNU/Linux platform
