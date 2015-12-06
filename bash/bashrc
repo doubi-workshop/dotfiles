@@ -98,8 +98,7 @@ fi
     # default edtitor for most program
     export VISUAL=vim
     export EDITOR="$VISUAL"
-    # added by Anaconda 2.3.0 installer
-    export PATH="${HOME}/local/bin:${HOME}/anaconda/bin:$PATH"
+    export PATH="${HOME}/local/bin:${HOME}/anaconda2/bin:$PATH"
     export LD_LIBRARY_PATH="${HOME}/local/lib:${LD_LIBRARY_PATH}"
 # }}}
 
