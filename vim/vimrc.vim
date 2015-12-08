@@ -20,7 +20,10 @@
     " Plugin 'tpope/vim-fugitive'
     " c.vim -- various c/c++ programming support
     " Plugin 'vim-scripts/c.vim'
-  
+ 
+    " vim-protobuf syntax highlight
+    Plugin 'uarun/vim-protobuf'
+    "
     " easymotion -- awesome motion
     Plugin 'easymotion/vim-easymotion'
     " nerdcommenter -- easy comment and uncomment

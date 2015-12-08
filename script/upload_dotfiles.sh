@@ -9,7 +9,7 @@ if [[ $# -lt 1 ]]; then
 fi
 
 if [[ "$1" == "all" ]]; then
-    for server in dev1 dev2 vm gpu1 gpu2 gpu3 gpu4
+    for server in dev1 dev2 vm gpu1 gpu2 gpu3 gpu4 test1 test2 test3 test4
     do
         echo "copy to server: ${server}"
         rsync -avzh --update --exclude='*/.git*' \
@@ -20,7 +20,7 @@ else
     for server in $@
     do
         echo "copy to server ${server}"
-        rsync -avzh --update --exclude='*/.git*' \
+        rsync -avzh --delete --exclude='*/.git*' \
             --exclude='*/vimfiles/bundle*'  --exclude='*.swp' \
             /cygdrive/e/Cloud/dotfiles -e ssh ${server}:/home/zhangkang-pd/
     done
