@@ -101,8 +101,9 @@ fi
     # Anaconda
     export PATH="${HOME}/local/bin:${HOME}/anaconda2/bin:$PATH"
     # user installed bin
-    export PATH="${HOME}"/bin:${HOME}/usr/bin:$PATH""
-    export LD_LIBRARY_PATH="${HOME}/local/lib:${LD_LIBRARY_PATH}"
+    export PATH="${HOME}/local/bin:${HOME}/bin:${HOME}/usr/bin:$PATH"
+    export LD_LIBRARY_PATH="${HOME}/usr/lib:${HOME}/local/lib:${LD_LIBRARY_PATH}"
+    export INCLUDE_PATH="${HOME}/usr/include:${HOME}/local/include:${INCLUDE_PATH}"
 # }}}
 
 
