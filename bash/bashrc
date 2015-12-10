@@ -59,7 +59,7 @@ fi
     export VISUAL=vim
     export EDITOR="$VISUAL"
     # use vim as man pager
-    export MANPAGER="col -b | vim -c 'set ft=man ts=8 nomod nolist nonu' -c 'nnoremap i <nop>' -"
+    export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
     # Anaconda
     export PATH="${HOME}/local/bin:${HOME}/anaconda2/bin:$PATH"
     # user installed bin
