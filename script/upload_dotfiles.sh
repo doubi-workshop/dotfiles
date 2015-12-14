@@ -9,7 +9,7 @@ if [[ $# -lt 1 ]]; then
 fi
 
 if [[ "$1" == "all" ]]; then
-    for server in dev1 dev2 vm gpu1 gpu2 gpu3 gpu4 test1 test2 test3 test4
+    for server in dev1 dev2 vm gpu1 gpu2 gpu3 gpu4 test1 test2 test3 test4 h7 h21
     do
         echo "copy to server: ${server}"
         rsync -avzh --update --exclude='*/.git*' \
