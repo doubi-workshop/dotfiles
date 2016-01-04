@@ -20,7 +20,9 @@
     " Plugin 'tpope/vim-fugitive'
     " c.vim -- various c/c++ programming support
     " Plugin 'vim-scripts/c.vim'
- 
+    
+    " c++11 highlighting feature
+    Plugin 'octol/vim-cpp-enhanced-highlight'
     " vim-protobuf syntax highlight
     Plugin 'uarun/vim-protobuf'
     "
@@ -221,7 +223,6 @@
     set tags+=/usr/include/sys.tags
     set tags+=/usr/local/include/local.tags
     set tag+=${HOME}/lib/superviseddescent/superviseddescent.tags
-    set tag+=${HOME}/lib/caffe/caffe.tags
 " }}}
 
 " Movement {{{
