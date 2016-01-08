@@ -66,6 +66,12 @@ fi
     export PATH="${HOME}/local/bin:${HOME}/bin:${HOME}/usr/bin:$PATH"
     export LD_LIBRARY_PATH="${HOME}/usr/lib:${HOME}/local/lib:${LD_LIBRARY_PATH}"
     export INCLUDE_PATH="${HOME}/usr/include:${HOME}/local/include:${INCLUDE_PATH}"
+    # python path
+    export PYTHON_EXECUTABLE="${HOME}/anaconda2/bin:${PYTHON_EXECUTABLE}"
+    export PYTHON_INCLUDE="${HOME}/anaconda2/include/python2.7/:${PYTHON_INCLUDE}"
+    export PYTHON_LIBRARY="${HOME}/anaconda2/lib/libpython2.7.so:${PYTHON_LIBRARY}"
+    export PYHTON_PACKAGES_PATH="${HOME}/lib/python2.7/site-packages/:${PYHTON_PACKAGES_PATH}"
+
 # }}}
 
 
