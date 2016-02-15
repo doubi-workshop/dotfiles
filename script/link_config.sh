@@ -25,6 +25,11 @@ case "$(hostname)" in
         echo "gpu"
         export DOTFILE_PATH=${HOME}/dotfiles
 		;;
+	# dlgpu1-6
+    dlgpu[1-6].ai.bjdt.qihoo.net )
+        echo "dlgpu"
+        export DOTFILE_PATH=${HOME}/dotfiles
+		;;
 	# virtual machine
 	face01v.image.corp.qihoo.net )
         echo "virtual machine"
@@ -41,15 +46,15 @@ fi
 echo "soft link personal script"
 
 # bash
-if [ -h "${HOME}/.bashrc" -o -e "${HOME}/.bashrc" ]; then
-    rm ${HOME}/.bashrc
-fi
-ln -s ${DOTFILE_PATH}/bash/bashrc ${HOME}/.bashrc
-if [ -h "${HOME}/.bash_profile" -o -e "${HOME}/.bash_profile" ]; then
-    rm ${HOME}/.bash_profile
-fi
-ln -s ${DOTFILE_PATH}/bash/bash_profile ${HOME}/.bash_profile
-echo "soft link bash"
+#if [ -h "${HOME}/.bashrc" -o -e "${HOME}/.bashrc" ]; then
+#    rm ${HOME}/.bashrc
+#fi
+#ln -s ${DOTFILE_PATH}/bash/bashrc ${HOME}/.bashrc
+#if [ -h "${HOME}/.bash_profile" -o -e "${HOME}/.bash_profile" ]; then
+#    rm ${HOME}/.bash_profile
+#fi
+#ln -s ${DOTFILE_PATH}/bash/bash_profile ${HOME}/.bash_profile
+#echo "soft link bash"
 
 # zsh
 #if [ -h "${HOME}/.zshrc" ]; then
