@@ -65,7 +65,7 @@ fi
     # user installed bin
     export PATH="${HOME}/usr/bin:$PATH"
     # lib path
-    export LD_LIBRARY_PATH="${HOME}/usr/lib:${HOME}/anaconda2/include:${LD_LIBRARY_PATH}"
+    export LD_LIBRARY_PATH="${HOME}/usr/lib:${HOME}/anaconda2/lib:${LD_LIBRARY_PATH}"
     export CPATH="${HOME}/usr/include:${HOME}/anaconda2/include:${CPATH}"
     export PKG_CONFIG_PATH="${HOME}/usr/lib/pkgconfig:${HOME}/anaconda2/lib/pkgconfig:${PKG_CONFIG_PATH}"
     # python path
