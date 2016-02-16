@@ -46,15 +46,21 @@ fi
 echo "soft link personal script"
 
 # bash
-#if [ -h "${HOME}/.bashrc" -o -e "${HOME}/.bashrc" ]; then
-#    rm ${HOME}/.bashrc
-#fi
-#ln -s ${DOTFILE_PATH}/bash/bashrc ${HOME}/.bashrc
-#if [ -h "${HOME}/.bash_profile" -o -e "${HOME}/.bash_profile" ]; then
-#    rm ${HOME}/.bash_profile
-#fi
-#ln -s ${DOTFILE_PATH}/bash/bash_profile ${HOME}/.bash_profile
-#echo "soft link bash"
+if ! [ -d "${HOME}/.bash_it" -o -h "${HOME}/.bash_it" ]; then
+    git clone --depth=1 https://github.com/Bash-it/bash-it.git ${HOME}/.bash_it
+    bash ${HOME}/.bash_it/install.sh
+    bash-it enable alias all
+    bash-it enable completion all
+fi
+if [ -h "${HOME}/.bashrc" -o -e "${HOME}/.bashrc" ]; then
+    rm ${HOME}/.bashrc
+fi
+ln -s ${DOTFILE_PATH}/bash/bash_profile ${HOME}/.bashrc
+if [ -h "${HOME}/.bash_profile" -o -e "${HOME}/.bash_profile" ]; then
+    rm ${HOME}/.bash_profile
+fi
+ln -s ${DOTFILE_PATH}/bash/bash_profile ${HOME}/.bash_profile
+echo "soft link bash"
 
 # zsh
 #if [ -h "${HOME}/.zshrc" ]; then
