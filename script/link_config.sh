@@ -45,12 +45,20 @@ if ! [ -h "${HOME}/script" -o -d "${HOME}/script" ]; then
 fi
 echo "soft link personal script"
 
+# ssh config
+if [ -h "${HOME}/.ssh/config" -o -e "${HOME}/.ssh/config" ]; then
+    rm ${HOME}/.ssh/config
+fi
+ln -s ${DOTFILE_PATH}/ssh/config ${HOME}/.ssh/config
+echo "soft link ssh config"
+
 # bash
 if ! [ -d "${HOME}/.bash_it" -o -h "${HOME}/.bash_it" ]; then
     git clone --depth=1 https://github.com/Bash-it/bash-it.git ${HOME}/.bash_it
     bash ${HOME}/.bash_it/install.sh
     bash-it enable alias all
     bash-it enable completion all
+    ln -s ${DOTFILE_PATH}/bash/bashrc ${HOME}/.bash_it/lib/rookiepig.bash
 fi
 if [ -h "${HOME}/.bashrc" -o -e "${HOME}/.bashrc" ]; then
     rm ${HOME}/.bashrc

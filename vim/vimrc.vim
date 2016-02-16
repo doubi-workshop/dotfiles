@@ -318,6 +318,9 @@
  
 " minibufexpl {{{
     let g:miniBufExplBRSplit = 0
+    let g:did_minibufexplorer_syntax_inits = 1
+    hi link MBEVisibileNormal String
+    hi link MBEVisibleActiveNormal Keyword
 " }}}
 
 " pymode {{{
