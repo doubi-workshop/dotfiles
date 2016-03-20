@@ -17,6 +17,13 @@ snippet file_head
 	*
 	* =====================================================================================
 	*/
+	
+
+snippet def_guard
+	#ifndef ${1:PROJECT_FILE_NAME_H_}
+	#define ${1:PROJECT_FILE_NAME_H_}
+	...
+	#endif  // ${1:PROJECT_FILE_NAME_H_}
 
 snippet mongo_exc
 	try {

@@ -74,6 +74,8 @@ fi
     export PYTHON_INCLUDE="${HOME}/anaconda2/include/python2.7:${PYTHON_INCLUDE}"
     export PYTHON_LIBRARY="${HOME}/anaconda2/lib/libpython2.7.so:${PYTHON_LIBRARY}"
     export PYTHON_PACKAGES_PATH="${HOME}/lib/python2.7/site-packages:${PYHTON_PACKAGES_PATH}"
+    # java path
+    export PATH="/usr/java/jre1.8.0_73/bin/:${PATH}"
 
 # }}}
 
@@ -126,6 +128,8 @@ fi
 
     # subl in OSX
     alias subl='reattach-to-user-namespace subl'
+    # arm cross compile tool
+    alias armcc='arm-linux-gnueabi-gcc'
 # }}}
 
 # Function {{{

@@ -223,6 +223,7 @@
     set tags+=/usr/include/sys.tags
     set tags+=/usr/local/include/local.tags
     set tag+=${HOME}/lib/superviseddescent/superviseddescent.tags
+    set tag+=${HOME}/tag/*.tags
 " }}}
 
 " Movement {{{
