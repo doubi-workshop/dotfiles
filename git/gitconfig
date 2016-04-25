@@ -7,3 +7,5 @@
 	proxy = proxy.corp.qihoo.net:8080
 [core]
 	autocrlf = input
+[push]
+	default = simple

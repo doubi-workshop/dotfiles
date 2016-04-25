@@ -61,7 +61,9 @@ fi
     # use vim as man pager
     export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
     # Anaconda
-    export PATH="${HOME}/anaconda2/bin:$PATH"
+    export PATH="${HOME}/anaconda2/bin:${PATH}"
+    # Matlab
+    export PATH="/usr/local/MATLAB/R2014b/bin:${PATH}"
     # user installed bin
     export PATH="${HOME}/usr/bin:$PATH"
     # lib path
