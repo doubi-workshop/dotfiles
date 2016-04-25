@@ -17,6 +17,13 @@ fi
 		# Do something under Mac OS X platform        
         export LANG="zh_CN.UTF-8"
         export LC_ALL="zh_CN.UTF-8"
+        # Anaconda
+        export PATH="${HOME}/anaconda2/bin:${PATH}"
+        export LD_LIBRARY_PATH="${HOME}/anaconda2/lib:${LD_LIBRARY_PATH}"
+        export CPATH="${HOME}/anaconda2/include:${CPATH}"
+        export PKG_CONFIG_PATH="${HOME}/anaconda2/lib/pkgconfig:${PKG_CONFIG_PATH}"
+        export PYTHON_INCLUDE="${HOME}/anaconda2/include/python2.7:${PYTHON_INCLUDE}"
+        export PYTHON_LIBRARY="${HOME}/anaconda2/lib/libpython2.7.so:${PYTHON_LIBRARY}"
 	elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 		# Do something under GNU/Linux platform
         export LANG="en_US.utf8"
@@ -60,21 +67,15 @@ fi
     export EDITOR="$VISUAL"
     # use vim as man pager
     export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
-    # Anaconda
-    export PATH="${HOME}/anaconda2/bin:${PATH}"
     # Matlab
     export PATH="/usr/local/MATLAB/R2014b/bin:${PATH}"
     # user installed bin
     export PATH="${HOME}/usr/bin:$PATH"
     # lib path
-    export LD_LIBRARY_PATH="${HOME}/usr/lib:${HOME}/anaconda2/lib:${LD_LIBRARY_PATH}"
-    export CPATH="${HOME}/usr/include:${HOME}/anaconda2/include:${CPATH}"
-    export PKG_CONFIG_PATH="${HOME}/usr/lib/pkgconfig:${HOME}/anaconda2/lib/pkgconfig:${PKG_CONFIG_PATH}"
+    export LD_LIBRARY_PATH="${HOME}/usr/lib:${LD_LIBRARY_PATH}"
+    export CPATH="${HOME}/usr/include::${CPATH}"
+    export PKG_CONFIG_PATH="${HOME}/usr/lib/pkgconfig:${PKG_CONFIG_PATH}"
     # python path
-    #export PYTHONHOME="${HOME}/anaconda2:${PYTHONHOME}"
-    #export PYTHON_EXECUTABLE="${HOME}/anaconda2/bin:${PYTHON_EXECUTABLE}"
-    export PYTHON_INCLUDE="${HOME}/anaconda2/include/python2.7:${PYTHON_INCLUDE}"
-    export PYTHON_LIBRARY="${HOME}/anaconda2/lib/libpython2.7.so:${PYTHON_LIBRARY}"
     export PYTHON_PACKAGES_PATH="${HOME}/lib/python2.7/site-packages:${PYHTON_PACKAGES_PATH}"
     # java path
     export PATH="/usr/java/jre1.8.0_73/bin/:${PATH}"
