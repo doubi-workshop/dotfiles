@@ -90,7 +90,9 @@ bindsym $mod+a focus parent
 
 # switch to workspace
 bindsym $mod+1 workspace 1 term
+workspace "1 term" output VGA-1
 bindsym $mod+2 workspace 2 chrome
+workspace "2 chrome" output DVI-0
 bindsym $mod+3 workspace 3 vm
 bindsym $mod+4 workspace 4 
 bindsym $mod+5 workspace 5 
@@ -152,3 +154,9 @@ bar {
     tray_output primary
     status_command i3status
 }
+
+
+# xrandr config
+exec --no-startup-id "xrandr --output VGA-1 --primary"
+exec --no-startup-id "xrandr --output DVI-0 --rotate left" 
+exec --no-startup-id "xrandr --output DVI-0 --right-of VGA-1"

@@ -45,9 +45,12 @@
     " vim-tmux integration
     Plugin 'christoomey/vim-tmux-navigator'
     " snipmate
-    Plugin 'MarcWeber/vim-addon-mw-utils'
-    Plugin 'tomtom/tlib_vim'
-    Plugin 'garbas/vim-snipmate'
+    "Plugin 'MarcWeber/vim-addon-mw-utils'
+    "Plugin 'tomtom/tlib_vim'
+    "Plugin 'garbas/vim-snipmate'
+    " UltiSnips
+    Plugin 'SirVer/ultisnips'
+    " useful snippets
     Plugin 'honza/vim-snippets'
     " YouCompletMe
     Plugin 'Valloric/YouCompleteMe'
@@ -138,12 +141,14 @@
 
 " Spaces {{{
     set shiftround   " when at 3 spaces, and I hit > ... go to 4, not 5
-    set tabstop=4    " number of visual spaces per TAB
-    set shiftwidth=4    " indent spaces for '>>' '<<'
-    set softtabstop=4    " number of spaces in TAB when editting
+    set tabstop=2    " number of visual spaces per TAB
+    set shiftwidth=2    " indent spaces for '>>' '<<'
+    set softtabstop=2    " number of spaces in TAB when editting
     set expandtab    " tabs are spaces
     set autoindent    " auto indent file
     set smartindent    " smart indent (most about C)
+	  " for python 	
+		autocmd Filetype python setlocal ts=4 sw=4 sts=4 expandtab smartindent autoindent
 " }}}
 
 " UI Config {{{
@@ -174,7 +179,7 @@
         set t_Co=256    " Enable 256 colors to make colorscheme work on terminal
     endif
 
-    filetype indent on    " load filetype-specific indent files (at vim/indent/xxx.vim)
+    filetype plugin indent on    " load filetype-specific indent files (at vim/indent/xxx.vim)
     set wildmenu    " visual autocomplete for command menu
     set lazyredraw    " redraw only when neeeded (for fast macro)
     set showmatch    " highlight matching {[(
@@ -292,14 +297,27 @@
     " doxygentoolkit -- function comment
     map <leader>dx :Dox<CR>
     " vim-snipmate
-    imap <leader><Tab> <Plug>snipMateNextOrTrigger
-    smap <leader><Tab> <Plug>snipMateNextOrTrigger
-    imap <leader><S-Tab> <Plug>snipMateBack
-    smap <leader><S-Tab> <Plug>snipMateBack
-    vmap <leader><Tab> <Plug>snipMateVisual
+    "imap <leader><Tab> <Plug>snipMateNextOrTrigger
+    "smap <leader><Tab> <Plug>snipMateNextOrTrigger
+    "imap <leader><S-Tab> <Plug>snipMateBack
+    "smap <leader><S-Tab> <Plug>snipMateBack
+    "vmap <leader><Tab> <Plug>snipMateVisual
+    " UltiSnips
+    "let g:UltiSnipsExpandTrigger="<c-tab>"
+    let g:UltiSnipsExpandTrigger="<c-j>"
+	let g:UltiSnipsListSnippets="<c-s-tab>"
     " YouCompleteMe
     nnoremap <leader>jd :YcmCompleter GoToDeclaration<CR>
     nnoremap <leader>je :YcmCompleter GoToDefinition<CR> 
+    " CtrlSF
+    nmap     <C-F>f <Plug>CtrlSFPrompt
+	vmap     <C-F>f <Plug>CtrlSFVwordPath
+	vmap     <C-F>F <Plug>CtrlSFVwordExec
+	nmap     <C-F>n <Plug>CtrlSFCwordPath
+	nmap     <C-F>p <Plug>CtrlSFPwordPath
+	nnoremap <C-F>o :CtrlSFOpen<CR>
+	nnoremap <C-F>t :CtrlSFToggle<CR>
+	inoremap <C-F>t <Esc>:CtrlSFToggle<CR>
 " }}}
 
 " NERDTree {{{

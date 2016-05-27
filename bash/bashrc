@@ -35,29 +35,6 @@ fi
 	fi  
     # set HOME and DOTFILE_PATH
     export DOTFILE_PATH=${HOME}/dotfiles
-    case "$(hostname)" in
-    	# dev1 machine
-        xjydev1.corp.qihoo.net )
-            export DOTFILE_PATH=${HOME}/dotfiles
-            ;;
-        # dev2 machine
-        dev15.se.corp.qihoo.net )
-            export HOME=/da1/zhangkang-pd
-            export DOTFILE_PATH=${HOME}/dotfiles
-            ;;
-    	# pc
-        zhangkang-pd-D4 )
-        	export DOTFILE_PATH=/cygdrive/e/Cloud/dotfiles
-            ;;
-    	# gpu1-4
-    	gpu[1-4].imgse.bjdt.qihoo.net )
-            export DOTFILE_PATH=${HOME}/dotfiles
-    		;;
-    	# virtual machine
-    	face01v.image.corp.qihoo.net )
-            export DOTFILE_PATH=${HOME}/dotfiles
-    		;;	
-    esac
 
     # export PS1=$txtpur'\u'$txtylw'@\h: '$txtgrn'\W'$txtred'\$ '$txtrst
     #export PROMPT_COMMAND=print_before_the_prompt
