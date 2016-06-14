@@ -34,3 +34,6 @@ snippet mongo_exc
 	}
 	LOG(ERROR) << "unknown exception";
 	return DB_ERR_UNKNOW_EXCEPTION;
+
+snippet ros_init "ros::init(argc, argv, node_name)"
+	ros::init(argc, argv, "${1:node_name}");

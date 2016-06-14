@@ -155,8 +155,5 @@ bar {
     status_command i3status
 }
 
-
-# xrandr config
-exec --no-startup-id "xrandr --output VGA-1 --primary"
-exec --no-startup-id "xrandr --output DVI-0 --rotate left" 
-exec --no-startup-id "xrandr --output DVI-0 --right-of VGA-1"
+# start network applet on status bar
+exec --no-startup-id nm-applet
