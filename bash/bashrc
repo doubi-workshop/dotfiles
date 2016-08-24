@@ -11,8 +11,8 @@ if [ -f /opt/ros/indigo/setup.bash ]; then
 fi
 
 # soruce catkin worspace
-if [ -f /home/rookiepig/learn/ros/catkin_ws/devel/setup.bash  ]; then
-  source /home/rookiepig/learn/ros/catkin_ws/devel/setup.bash
+if [ -f /home/rookiepig/catkin_ws/devel/setup.bash  ]; then
+  source /home/rookiepig/catkin_ws/devel/setup.bash
 fi
 
 #
@@ -64,13 +64,15 @@ fi
   # user installed bin
   export PATH="${HOME}/usr/bin:$PATH"
   # lib path
-  export LD_LIBRARY_PATH="${HOME}/usr/lib:${LD_LIBRARY_PATH}"
+  export LD_LIBRARY_PATH="/usr/lib/:/usr/local/lib:/usr/lib/x86_64-linux-gnu/:${HOME}/usr/lib:${LD_LIBRARY_PATH}"
   export CPATH="${HOME}/usr/include::${CPATH}"
   export PKG_CONFIG_PATH="${HOME}/usr/lib/pkgconfig:${PKG_CONFIG_PATH}"
   # python path
   export PYTHON_PACKAGES_PATH="${HOME}/lib/python2.7/site-packages:${PYHTON_PACKAGES_PATH}"
   # java path
   export PATH="/usr/java/jre1.8.0_73/bin/:${PATH}"
+  # Qt path
+  export PATH="${HOME}/Qt5.7.0/Tools/QtCreator/bin:${HOME}/Qt5.7.0/5.7/gcc_64/bin:${PATH}"
 #
 # }}}
 #

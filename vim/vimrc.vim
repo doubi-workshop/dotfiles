@@ -21,6 +21,8 @@
     " c.vim -- various c/c++ programming support
     " Plugin 'vim-scripts/c.vim'
    
+    " vim-ros -- for ROS
+    Plugin 'taketwo/vim-ros'
     " xmledit -- for XML/HTML file
     Plugin 'sukima/xmledit'
     " c++11 highlighting feature
@@ -42,8 +44,9 @@
     Plugin 'jiangmiao/auto-pairs'
     " STL-Syntax -- syntax file for stl
     Plugin 'Mizuchi/STL-Syntax'
-    " color scheme -- molokai
+    " color scheme 
     Plugin 'tomasr/molokai'
+    Plugin 'shaond/vim-guru'
     " vim-tmux integration
     Plugin 'christoomey/vim-tmux-navigator'
     " snipmate
@@ -404,15 +407,24 @@
 
 " YouCompeteMe {{{
     " 补全功能在注释中同样有效
-    let g:ycm_complete_in_comments=1
+    let g:ycm_complete_in_comments = 1
     " 允许 vim 加载 .ycm_extra_conf.py 文件，不再提示
-    let g:ycm_confirm_extra_conf=0
+    let g:ycm_confirm_extra_conf = 0
     " 开启 YCM 标签补全引擎
     " let g:ycm_collect_identifiers_from_tags_files=1
     " 补全内容不以分割子窗口形式出现，只显示补全列表
     set completeopt-=preview
     " 语法关键字补全         
     " let g:ycm_seed_identifiers_with_syntax=1 
+" }}}
+
+" vim-ros {{{
+    " 补全功能在注释中同样有效
+    " g:ros_make [current|all] Controls which package to build
+    " g:ros_build_system [catkin|rosbuild|catkin-tools] Which build system to use
+    " g:ros_catkin_make_options Additional options for catkin_make (i.e '-j4
+    " -DCMAKE_BUILD_TYPE=Debug' ...)
+    "let g:ros_build_system = 'catkin'
 " }}}
 
 " bottom line is mode line
