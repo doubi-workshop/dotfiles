@@ -73,6 +73,9 @@ fi
   export PATH="/usr/java/jre1.8.0_73/bin/:${PATH}"
   # Qt path
   export PATH="${HOME}/Qt5.7.0/Tools/QtCreator/bin:${HOME}/Qt5.7.0/5.7/gcc_64/bin:${PATH}"
+  export CMAKE_PREFIX_PATH="${HOME}/Qt5.7.0/5.7/gcc_64/:${CMAKE_PREFIX_PATH}"
+  export PKG_CONFIG_PATH="${HOME}/Qt5.7.0/5.7/gcc_64/lib/pkgconfig/:${PKG_CONFIG_PATH}"
+  export LD_LIBRARY_PATH="${HOME}/Qt5.7.0/5.7/gcc_64/lib/:${PKG_CONFIG_PATH}"
 #
 # }}}
 #
