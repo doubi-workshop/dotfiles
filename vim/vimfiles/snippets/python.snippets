@@ -28,3 +28,33 @@ snippet class_head
 	"""
 
 # }}}
+
+
+# Function {{{
+
+snippet parse_args
+	import argparse
+
+	def parse_args():
+			""" parsing command line arguments
+			
+			Args:
+					
+			
+			Returns:
+					argument class	
+			
+			"""
+			parser = argparse.ArgumentParser(description='$1')
+			parser.add_argument('--stage', dest='stage',
+													help='testing stage: [upload]/[get_cluster]',
+													default='upload', type=str)
+
+			if len(sys.argv) == 1:
+					parser.print_help()
+					exit()
+
+			args = parser.parse_args()
+			return args
+
+# }}}
