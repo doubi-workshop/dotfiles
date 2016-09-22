@@ -1,4 +1,5 @@
-## Comment 
+## Comment {{{
+
 # file header
 snippet file_head
 	/* =====================================================================================
@@ -17,13 +18,30 @@ snippet file_head
 	*
 	* =====================================================================================
 	*/
-	
 
+# define guard
 snippet def_guard
 	#ifndef ${1:PROJECT_FILE_NAME_H_}
 	#define ${1:PROJECT_FILE_NAME_H_}
 	...
 	#endif  // ${1:PROJECT_FILE_NAME_H_}
+
+## }}} 
+
+	
+
+## Macro {{{
+
+snippet disable_copy_assign
+	// Disable the copy and assignment operator for a class.
+	#define DISABLE_COPY_AND_ASSIGN(classname) \
+	private:\
+		classname(const classname&);\
+		classname& operator=(const classname&)
+
+## }}}
+
+## Lib {{{
 
 snippet mongo_exc
 	try {
@@ -37,3 +55,8 @@ snippet mongo_exc
 
 snippet ros_init "ros::init(argc, argv, node_name)"
 	ros::init(argc, argv, "${1:node_name}");
+
+## }}}
+
+
+	
