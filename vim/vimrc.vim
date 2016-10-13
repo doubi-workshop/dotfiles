@@ -21,6 +21,8 @@
     " c.vim -- various c/c++ programming support
     " Plugin 'vim-scripts/c.vim'
    
+    " clang-format -- formatting source file
+    Plugin 'rhysd/vim-clang-format'
     " vim-ros -- for ROS
     Plugin 'taketwo/vim-ros'
     " xmledit -- for XML/HTML file
